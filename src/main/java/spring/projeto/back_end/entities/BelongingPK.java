@@ -7,22 +7,22 @@ import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-@Embeddable//encapsulamento do game_id e list_id
+@Embeddable //encapsulamento do game_id e list_id
 public class BelongingPK {
 	
 	@ManyToOne
-	@JoinColumn(name= "game_id")
+    @JoinColumn(name = "game_id")
 	private Game Game ;
 	
-	@ManyToOne
-	@JoinColumn(name= "list_id")
+	 @ManyToOne
+	 @JoinColumn(name = "list_id")
 	private GameList list ;
 	
 	
-	public BelongingPK(GameList list, spring.projeto.back_end.entities.Game game) {
-		super();
+	public BelongingPK(GameList list, Game game) {
+		
 		this.list = list;
-		Game = game;
+		this.Game = game;
 	}
 
 	public BelongingPK() {
