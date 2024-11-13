@@ -11,6 +11,8 @@ import spring.projeto.back_end.dto.GameDTO;
 import spring.projeto.back_end.dto.GameMinDTO;
 import spring.projeto.back_end.entities.Game;
 import spring.projeto.back_end.repository.GameRepository;
+import spring.projeto.back_end.repository.projections.GameMinProjection;
+
 import java.util.stream.Collectors;
 
 @Service
@@ -34,5 +36,13 @@ public class GameService {
 		
 		return dto;
 	}
+	@Transactional(readOnly = true)
+	public List<GameMinDTO> findByList (Long listid) {
+		List<GameMinProjection> result = gameRepository.searchByList(listid);
+		List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO (x)).toList();
+		
+		return dto;
+	}
+	
 
 }
