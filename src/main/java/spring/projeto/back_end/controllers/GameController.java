@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import spring.projeto.back_end.dto.GameDTO;
 import spring.projeto.back_end.dto.GameMinDTO;
-import spring.projeto.back_end.entities.Game;
+
 import spring.projeto.back_end.services.GameService;
 
 @RestController
